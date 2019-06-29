@@ -6,17 +6,19 @@ import java.io.IOException;
 import javax.swing.JFrame;
 
 import view.CheckboxEquipment;
-import view.UI;
-import view.PanelDisconnection;
 import view.PanelBorrow;
+import view.PanelDisconnection;
 import view.PanelEquipments;
 import view.PanelPicture;
+import view.UI;
 
 public class GoSecuri {
 
-	public static void main(String[] args) {
-		UI test = new UI(new Dimension(600, 800), "Titre");
-
+	public void show(String path) {
+		UI frame = UI.mainFrame;
+		
+		frame.set(new Dimension(600, 700), "Selectionné vos équipements");
+		
 //		System.load(
 //				"D:\\Toncourt_Robin\\Documents\\eclipse-workspace-java\\ReconnaissanceFaciale\\biblio\\opencv_2.4.13.6\\build\\java\\x64\\"
 //						+ Core.NATIVE_LIBRARY_NAME + ".dll");
@@ -57,10 +59,10 @@ public class GoSecuri {
 		};
 		
 		PanelEquipments matos = new PanelEquipments(afficheMatos);
-		PanelDisconnection deco = new PanelDisconnection(test);
+		PanelDisconnection deco = new PanelDisconnection();
 		PanelPicture photo = null;
 		try {
-			photo = new PanelPicture("D:\\Toncourt_Robin\\Images\\belle_delphine_portrait.jpg");
+			photo = new PanelPicture(path);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -80,17 +82,17 @@ public class GoSecuri {
 //		global.add(panneauSuperieur, BorderLayout.NORTH);
 //		global.add(matos, BorderLayout.CENTER);
 
-//		test.setContentPane(new PhotoWebcam(test));
-//		test.setContentPane(
+//		frame.setContentPane(new PhotoWebcam(frame));
+//		frame.setContentPane(
 //				new PanneauMateriels(new AfficheMateriel(mousqueton), new AfficheMateriel(gantInterventions)));
-//		test.setContentPane(new PanneauPhoto("D:\\Toncourt_Robin\\Images\\belle_delphine_portrait.jpg"));
-//		test.setContentPane(global);
-		test.setContentPane(new PanelBorrow(deco, photo, matos));
+//		frame.setContentPane(new PanneauPhoto("D:\\Toncourt_Robin\\Images\\belle_delphine_portrait.jpg"));
+//		frame.setContentPane(global);
+		frame.setContentPane(new PanelBorrow(deco, photo, matos));
 
-//		test.pack();
+//		frame.pack();
 
-		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		test.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
 	}
 
 }

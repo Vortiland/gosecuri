@@ -6,15 +6,9 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Toncourt_Robin/Documents/eclipse_workspace_java/GoSecuri/lib/bridj-0.6.2.jar"/>
-	<classpathentry kind="lib" path="D:/Toncourt_Robin/Documents/eclipse_workspace_java/GoSecuri/lib/slf4j-api-1.7.2.jar"/>
-	<classpathentry kind="lib" path="D:/Toncourt_Robin/Documents/eclipse_workspace_java/GoSecuri/lib/webcam-capture-0.3.10.jar"/>
-	<classpathentry kind="lib" path="D:/Toncourt_Robin/Documents/eclipse_workspace_java/GoSecuri/lib/firebase-admin/firebase-admin-6.7.0.jar"/>
-	<classpathentry kind="lib" path="D:/Toncourt_Robin/Documents/eclipse_workspace_java/GoSecuri/lib/opencv_2.4.13.6/build/java/opencv-2413.jar"/>
-	<classpathentry kind="lib" path="D:/Toncourt_Robin/Documents/eclipse_workspace_java/GoSecuri/lib/google/google-oauth-client-1.24.1.jar"/>
-	<classpathentry kind="lib" path="D:/Toncourt_Robin/Documents/eclipse_workspace_java/GoSecuri/lib/google/google-oauth-client-appengine-1.24.1.jar"/>
-	<classpathentry kind="lib" path="D:/Toncourt_Robin/Documents/eclipse_workspace_java/GoSecuri/lib/google/google-oauth-client-java6-1.24.1.jar"/>
-	<classpathentry kind="lib" path="D:/Toncourt_Robin/Documents/eclipse_workspace_java/GoSecuri/lib/google/google-oauth-client-jetty-1.24.1.jar"/>
-	<classpathentry kind="lib" path="D:/Toncourt_Robin/Documents/eclipse_workspace_java/GoSecuri/lib/google/google-oauth-client-servlet-1.24.1.jar"/>
+	<classpathentry kind="lib" path="D:/Toncourt_Robin/Documents/GitHub/gosecuri/GoSecuri/lib/bridj-0.6.2.jar"/>
+	<classpathentry kind="lib" path="D:/Toncourt_Robin/Documents/GitHub/gosecuri/GoSecuri/lib/slf4j-api-1.7.2.jar"/>
+	<classpathentry kind="lib" path="D:/Toncourt_Robin/Documents/GitHub/gosecuri/GoSecuri/lib/webcam-capture-0.3.10.jar"/>
+	<classpathentry kind="lib" path="D:/Toncourt_Robin/Documents/GitHub/gosecuri/GoSecuri/lib/opencv_2.4.13.6/build/java/opencv-2413.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

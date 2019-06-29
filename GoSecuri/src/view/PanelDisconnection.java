@@ -8,6 +8,8 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import controller.WebcamCapture;
+
 public class PanelDisconnection extends JPanel implements ActionListener {
 
 	/**
@@ -24,8 +26,8 @@ public class PanelDisconnection extends JPanel implements ActionListener {
 	 * 
 	 * @param mainFrame
 	 */
-	public PanelDisconnection(UI mainFrame) {
-		this.frameMain = mainFrame;
+	public PanelDisconnection() {
+		this.frameMain = UI.mainFrame;
 
 		this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 
@@ -39,6 +41,10 @@ public class PanelDisconnection extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("Clique sur le bouton deconnexion / depuis " + this.getClass());
+		UI.mainFrame.getContentPane().removeAll();
+		UI.mainFrame.revalidate();
+		UI.mainFrame.repaint();
+		UI.mainFrame.setContentPane(WebcamCapture.cam);
 	}
 
 }

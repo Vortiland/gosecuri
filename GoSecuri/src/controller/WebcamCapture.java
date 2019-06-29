@@ -1,13 +1,16 @@
 package controller;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import org.opencv.core.CvType;
@@ -16,13 +19,17 @@ import org.opencv.core.Mat;
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamPanel;
 
+import view.UI;
+
 public class WebcamCapture extends JPanel implements ActionListener {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
+	public static WebcamCapture cam = new WebcamCapture();
+	
 	// panneau pour les boutons
 	private JPanel panelButtons;
 
@@ -38,7 +45,8 @@ public class WebcamCapture extends JPanel implements ActionListener {
 	// la photo prise
 //	private BufferedImage photo;
 
-	public WebcamCapture(JFrame fenetrePrincipal) {
+	public WebcamCapture() {
+		
 		panelButtons = new JPanel();
 
 		buttonPicture = new JButton("Prendre la photo");
@@ -56,33 +64,39 @@ public class WebcamCapture extends JPanel implements ActionListener {
 
 		this.add(panelWebcam, BorderLayout.CENTER);
 		this.add(panelButtons, BorderLayout.EAST);
+		
+		UI.mainFrame.set(new Dimension(600, 700), "Selectionné vos équipements");
+		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
+		String path = "D:\\Toncourt_Robin\\imgGoSecuri.jpg";
+		
+		BufferedImage photo = webcam.getImage();
 
-		/*
-		 * System.out.println("clique");
-		 * 
-		 * photo = webcam.getImage();
-		 * 
-		 * AffichePhoto affPhot = new AffichePhoto(photo); affPhot.setVisible(true);
-		 * 
-		 * CascadeClassifier faceDetector = new CascadeClassifier(
-		 * "D:\\Toncourt_Robin\\Documents\\eclipse-workspace-java\\ReconnaissanceFaciale\\biblio\\opencv_2.4.13.6\\sources\\data\\lbpcascades\\lbpcascade_frontalface.xml"
-		 * ); Mat verif = bufferedImageToMat(photo);
-		 * 
-		 * MatOfRect faceDetections = new MatOfRect();
-		 * faceDetector.detectMultiScale(verif, faceDetections);
-		 * 
-		 * for (Rect rect : faceDetections.toArray()) { Core.rectangle(verif, new
-		 * Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height),
-		 * new Scalar(0, 255, 0)); }
-		 * 
-		 * String filename = "faceDetection.png";
-		 * System.out.println(String.format("Writing %s", filename));
-		 * Highgui.imwrite(filename, verif);
-		 */
+		File output = new File(path);
+
+		try {
+			ImageIO.write(photo, "jpg", output);
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		System.out.println(path);
+		
+		if (faceRecognition(output)) {
+			GoSecuri goSecuri = new GoSecuri();
+
+			goSecuri.show(path);
+		}
+
+	}
+
+	public boolean faceRecognition(File image) {
+		// test the face
+		return true;
 	}
 
 	public static Mat bufferedImageToMat(BufferedImage bi) {
